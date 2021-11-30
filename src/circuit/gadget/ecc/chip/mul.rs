@@ -18,7 +18,8 @@ use pasta_curves::pallas;
 
 mod complete;
 mod incomplete;
-mod overflow;
+// TODO: Undo this pub(crate).
+pub(crate) mod overflow;
 
 /// Number of bits for which complete addition needs to be used in variable-base
 /// scalar multiplication
@@ -65,7 +66,7 @@ impl From<&EccConfig> for Config {
             hi_config: ecc_config.into(),
             lo_config: ecc_config.into(),
             complete_config: ecc_config.into(),
-            overflow_config: ecc_config.into(),
+            overflow_config: ecc_config.mul_overflow,
         };
 
         assert_eq!(
@@ -131,7 +132,6 @@ impl Config {
         self.hi_config.create_gate(meta);
         self.lo_config.create_gate(meta);
         self.complete_config.create_gate(meta);
-        self.overflow_config.create_gate(meta);
     }
 
     pub(super) fn assign(
