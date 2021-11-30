@@ -16,7 +16,8 @@ use halo2::{
 
 use pasta_curves::pallas;
 
-mod complete;
+// TODO: Undo this pub(crate).
+pub(crate) mod complete;
 mod incomplete;
 // TODO: Undo this pub(crate).
 pub(crate) mod overflow;
@@ -65,7 +66,7 @@ impl From<&EccConfig> for Config {
             add_config: ecc_config.add,
             hi_config: ecc_config.into(),
             lo_config: ecc_config.into(),
-            complete_config: ecc_config.into(),
+            complete_config: ecc_config.mul_complete,
             overflow_config: ecc_config.mul_overflow,
         };
 
@@ -131,7 +132,6 @@ impl Config {
 
         self.hi_config.create_gate(meta);
         self.lo_config.create_gate(meta);
-        self.complete_config.create_gate(meta);
     }
 
     pub(super) fn assign(

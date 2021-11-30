@@ -151,7 +151,7 @@ pub struct EccConfig {
     /// Variable-base scalar multiplication (lo half)
     pub q_mul_lo: (Selector, Selector, Selector),
     /// Selector used to enforce boolean decomposition in variable-base scalar mul
-    pub q_mul_decompose_var: Selector,
+    pub mul_complete: mul::complete::Config,
     /// Selector used to enforce switching logic on LSB in variable-base scalar mul
     pub q_mul_lsb: Selector,
     /// Variable-base scalar multiplication (overflow check)
@@ -227,9 +227,6 @@ impl EccChip {
         // - advices[4]: lambda1
         // - advices[9]: z
         //
-        // mul::complete::Config:
-        // - advices[9]: z_complete
-        //
         // TODO: Refactor away from `impl From<EccConfig> for _` so that sub-configs can
         // equality-enable the columns they need to.
         for column in &advices {
@@ -257,6 +254,7 @@ impl EccChip {
         // TODO: Move this into mul::Config.
         let mul_overflow =
             mul::overflow::Config::configure(meta, range_check, advices[6..9].try_into().unwrap());
+        let mul_complete = mul::complete::Config::configure(meta, advices[9], add);
 
         let config = EccConfig {
             advices,
@@ -266,7 +264,7 @@ impl EccChip {
             add,
             q_mul_hi: (meta.selector(), meta.selector(), meta.selector()),
             q_mul_lo: (meta.selector(), meta.selector(), meta.selector()),
-            q_mul_decompose_var: meta.selector(),
+            mul_complete,
             mul_overflow,
             q_mul_lsb: meta.selector(),
             q_mul_fixed_full: meta.selector(),
