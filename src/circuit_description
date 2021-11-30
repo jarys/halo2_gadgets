@@ -1483,351 +1483,6 @@ PinnedVerificationKey {
                 Product(
                     Product(
                         Product(
-                            Product(
-                                Fixed {
-                                    query_index: 23,
-                                    column_index: 23,
-                                    rotation: Rotation(
-                                        0,
-                                    ),
-                                },
-                                Sum(
-                                    Constant(
-                                        0x0000000000000000000000000000000000000000000000000000000000000001,
-                                    ),
-                                    Negated(
-                                        Fixed {
-                                            query_index: 23,
-                                            column_index: 23,
-                                            rotation: Rotation(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                            Sum(
-                                Constant(
-                                    0x0000000000000000000000000000000000000000000000000000000000000003,
-                                ),
-                                Negated(
-                                    Fixed {
-                                        query_index: 23,
-                                        column_index: 23,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        Sum(
-                            Constant(
-                                0x0000000000000000000000000000000000000000000000000000000000000004,
-                            ),
-                            Negated(
-                                Fixed {
-                                    query_index: 23,
-                                    column_index: 23,
-                                    rotation: Rotation(
-                                        0,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                    Advice {
-                        query_index: 0,
-                        column_index: 0,
-                        rotation: Rotation(
-                            0,
-                        ),
-                    },
-                ),
-                Sum(
-                    Sum(
-                        Product(
-                            Advice {
-                                query_index: 1,
-                                column_index: 1,
-                                rotation: Rotation(
-                                    0,
-                                ),
-                            },
-                            Advice {
-                                query_index: 1,
-                                column_index: 1,
-                                rotation: Rotation(
-                                    0,
-                                ),
-                            },
-                        ),
-                        Negated(
-                            Product(
-                                Product(
-                                    Advice {
-                                        query_index: 0,
-                                        column_index: 0,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                    Advice {
-                                        query_index: 0,
-                                        column_index: 0,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                ),
-                                Advice {
-                                    query_index: 0,
-                                    column_index: 0,
-                                    rotation: Rotation(
-                                        0,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                    Negated(
-                        Constant(
-                            0x0000000000000000000000000000000000000000000000000000000000000005,
-                        ),
-                    ),
-                ),
-            ),
-            Product(
-                Product(
-                    Product(
-                        Product(
-                            Product(
-                                Fixed {
-                                    query_index: 23,
-                                    column_index: 23,
-                                    rotation: Rotation(
-                                        0,
-                                    ),
-                                },
-                                Sum(
-                                    Constant(
-                                        0x0000000000000000000000000000000000000000000000000000000000000001,
-                                    ),
-                                    Negated(
-                                        Fixed {
-                                            query_index: 23,
-                                            column_index: 23,
-                                            rotation: Rotation(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                            Sum(
-                                Constant(
-                                    0x0000000000000000000000000000000000000000000000000000000000000003,
-                                ),
-                                Negated(
-                                    Fixed {
-                                        query_index: 23,
-                                        column_index: 23,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        Sum(
-                            Constant(
-                                0x0000000000000000000000000000000000000000000000000000000000000004,
-                            ),
-                            Negated(
-                                Fixed {
-                                    query_index: 23,
-                                    column_index: 23,
-                                    rotation: Rotation(
-                                        0,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                    Advice {
-                        query_index: 1,
-                        column_index: 1,
-                        rotation: Rotation(
-                            0,
-                        ),
-                    },
-                ),
-                Sum(
-                    Sum(
-                        Product(
-                            Advice {
-                                query_index: 1,
-                                column_index: 1,
-                                rotation: Rotation(
-                                    0,
-                                ),
-                            },
-                            Advice {
-                                query_index: 1,
-                                column_index: 1,
-                                rotation: Rotation(
-                                    0,
-                                ),
-                            },
-                        ),
-                        Negated(
-                            Product(
-                                Product(
-                                    Advice {
-                                        query_index: 0,
-                                        column_index: 0,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                    Advice {
-                                        query_index: 0,
-                                        column_index: 0,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                ),
-                                Advice {
-                                    query_index: 0,
-                                    column_index: 0,
-                                    rotation: Rotation(
-                                        0,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                    Negated(
-                        Constant(
-                            0x0000000000000000000000000000000000000000000000000000000000000005,
-                        ),
-                    ),
-                ),
-            ),
-            Product(
-                Product(
-                    Product(
-                        Product(
-                            Fixed {
-                                query_index: 23,
-                                column_index: 23,
-                                rotation: Rotation(
-                                    0,
-                                ),
-                            },
-                            Sum(
-                                Constant(
-                                    0x0000000000000000000000000000000000000000000000000000000000000001,
-                                ),
-                                Negated(
-                                    Fixed {
-                                        query_index: 23,
-                                        column_index: 23,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        Sum(
-                            Constant(
-                                0x0000000000000000000000000000000000000000000000000000000000000002,
-                            ),
-                            Negated(
-                                Fixed {
-                                    query_index: 23,
-                                    column_index: 23,
-                                    rotation: Rotation(
-                                        0,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                    Sum(
-                        Constant(
-                            0x0000000000000000000000000000000000000000000000000000000000000004,
-                        ),
-                        Negated(
-                            Fixed {
-                                query_index: 23,
-                                column_index: 23,
-                                rotation: Rotation(
-                                    0,
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                Sum(
-                    Sum(
-                        Product(
-                            Advice {
-                                query_index: 1,
-                                column_index: 1,
-                                rotation: Rotation(
-                                    0,
-                                ),
-                            },
-                            Advice {
-                                query_index: 1,
-                                column_index: 1,
-                                rotation: Rotation(
-                                    0,
-                                ),
-                            },
-                        ),
-                        Negated(
-                            Product(
-                                Product(
-                                    Advice {
-                                        query_index: 0,
-                                        column_index: 0,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                    Advice {
-                                        query_index: 0,
-                                        column_index: 0,
-                                        rotation: Rotation(
-                                            0,
-                                        ),
-                                    },
-                                ),
-                                Advice {
-                                    query_index: 0,
-                                    column_index: 0,
-                                    rotation: Rotation(
-                                        0,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                    Negated(
-                        Constant(
-                            0x0000000000000000000000000000000000000000000000000000000000000005,
-                        ),
-                    ),
-                ),
-            ),
-            Product(
-                Product(
-                    Product(
-                        Product(
                             Fixed {
                                 query_index: 20,
                                 column_index: 20,
@@ -3317,6 +2972,351 @@ PinnedVerificationKey {
                             1,
                         ),
                     },
+                ),
+            ),
+            Product(
+                Product(
+                    Product(
+                        Product(
+                            Product(
+                                Fixed {
+                                    query_index: 23,
+                                    column_index: 23,
+                                    rotation: Rotation(
+                                        0,
+                                    ),
+                                },
+                                Sum(
+                                    Constant(
+                                        0x0000000000000000000000000000000000000000000000000000000000000001,
+                                    ),
+                                    Negated(
+                                        Fixed {
+                                            query_index: 23,
+                                            column_index: 23,
+                                            rotation: Rotation(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            Sum(
+                                Constant(
+                                    0x0000000000000000000000000000000000000000000000000000000000000003,
+                                ),
+                                Negated(
+                                    Fixed {
+                                        query_index: 23,
+                                        column_index: 23,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        Sum(
+                            Constant(
+                                0x0000000000000000000000000000000000000000000000000000000000000004,
+                            ),
+                            Negated(
+                                Fixed {
+                                    query_index: 23,
+                                    column_index: 23,
+                                    rotation: Rotation(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Advice {
+                        query_index: 0,
+                        column_index: 0,
+                        rotation: Rotation(
+                            0,
+                        ),
+                    },
+                ),
+                Sum(
+                    Sum(
+                        Product(
+                            Advice {
+                                query_index: 1,
+                                column_index: 1,
+                                rotation: Rotation(
+                                    0,
+                                ),
+                            },
+                            Advice {
+                                query_index: 1,
+                                column_index: 1,
+                                rotation: Rotation(
+                                    0,
+                                ),
+                            },
+                        ),
+                        Negated(
+                            Product(
+                                Product(
+                                    Advice {
+                                        query_index: 0,
+                                        column_index: 0,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                    Advice {
+                                        query_index: 0,
+                                        column_index: 0,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                ),
+                                Advice {
+                                    query_index: 0,
+                                    column_index: 0,
+                                    rotation: Rotation(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Negated(
+                        Constant(
+                            0x0000000000000000000000000000000000000000000000000000000000000005,
+                        ),
+                    ),
+                ),
+            ),
+            Product(
+                Product(
+                    Product(
+                        Product(
+                            Product(
+                                Fixed {
+                                    query_index: 23,
+                                    column_index: 23,
+                                    rotation: Rotation(
+                                        0,
+                                    ),
+                                },
+                                Sum(
+                                    Constant(
+                                        0x0000000000000000000000000000000000000000000000000000000000000001,
+                                    ),
+                                    Negated(
+                                        Fixed {
+                                            query_index: 23,
+                                            column_index: 23,
+                                            rotation: Rotation(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            Sum(
+                                Constant(
+                                    0x0000000000000000000000000000000000000000000000000000000000000003,
+                                ),
+                                Negated(
+                                    Fixed {
+                                        query_index: 23,
+                                        column_index: 23,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        Sum(
+                            Constant(
+                                0x0000000000000000000000000000000000000000000000000000000000000004,
+                            ),
+                            Negated(
+                                Fixed {
+                                    query_index: 23,
+                                    column_index: 23,
+                                    rotation: Rotation(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Advice {
+                        query_index: 1,
+                        column_index: 1,
+                        rotation: Rotation(
+                            0,
+                        ),
+                    },
+                ),
+                Sum(
+                    Sum(
+                        Product(
+                            Advice {
+                                query_index: 1,
+                                column_index: 1,
+                                rotation: Rotation(
+                                    0,
+                                ),
+                            },
+                            Advice {
+                                query_index: 1,
+                                column_index: 1,
+                                rotation: Rotation(
+                                    0,
+                                ),
+                            },
+                        ),
+                        Negated(
+                            Product(
+                                Product(
+                                    Advice {
+                                        query_index: 0,
+                                        column_index: 0,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                    Advice {
+                                        query_index: 0,
+                                        column_index: 0,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                ),
+                                Advice {
+                                    query_index: 0,
+                                    column_index: 0,
+                                    rotation: Rotation(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Negated(
+                        Constant(
+                            0x0000000000000000000000000000000000000000000000000000000000000005,
+                        ),
+                    ),
+                ),
+            ),
+            Product(
+                Product(
+                    Product(
+                        Product(
+                            Fixed {
+                                query_index: 23,
+                                column_index: 23,
+                                rotation: Rotation(
+                                    0,
+                                ),
+                            },
+                            Sum(
+                                Constant(
+                                    0x0000000000000000000000000000000000000000000000000000000000000001,
+                                ),
+                                Negated(
+                                    Fixed {
+                                        query_index: 23,
+                                        column_index: 23,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        Sum(
+                            Constant(
+                                0x0000000000000000000000000000000000000000000000000000000000000002,
+                            ),
+                            Negated(
+                                Fixed {
+                                    query_index: 23,
+                                    column_index: 23,
+                                    rotation: Rotation(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Sum(
+                        Constant(
+                            0x0000000000000000000000000000000000000000000000000000000000000004,
+                        ),
+                        Negated(
+                            Fixed {
+                                query_index: 23,
+                                column_index: 23,
+                                rotation: Rotation(
+                                    0,
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                Sum(
+                    Sum(
+                        Product(
+                            Advice {
+                                query_index: 1,
+                                column_index: 1,
+                                rotation: Rotation(
+                                    0,
+                                ),
+                            },
+                            Advice {
+                                query_index: 1,
+                                column_index: 1,
+                                rotation: Rotation(
+                                    0,
+                                ),
+                            },
+                        ),
+                        Negated(
+                            Product(
+                                Product(
+                                    Advice {
+                                        query_index: 0,
+                                        column_index: 0,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                    Advice {
+                                        query_index: 0,
+                                        column_index: 0,
+                                        rotation: Rotation(
+                                            0,
+                                        ),
+                                    },
+                                ),
+                                Advice {
+                                    query_index: 0,
+                                    column_index: 0,
+                                    rotation: Rotation(
+                                        0,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Negated(
+                        Constant(
+                            0x0000000000000000000000000000000000000000000000000000000000000005,
+                        ),
+                    ),
                 ),
             ),
             Product(
