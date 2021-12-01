@@ -15,6 +15,8 @@ use halo2::{
 };
 use pasta_curves::{arithmetic::CurveAffine, pallas};
 
+use std::convert::TryInto;
+
 pub(super) mod add;
 pub(super) mod add_incomplete;
 pub(super) mod mul;
@@ -145,8 +147,8 @@ pub struct EccConfig {
     mul_fixed_full: mul_fixed::full_width::Config,
     /// Fixed-base signed short scalar multiplication
     mul_fixed_short: mul_fixed::short::Config,
-    /// Canonicity checks on base field element used as scalar in fixed-base mul
-    pub q_mul_fixed_base_field: Selector,
+    /// Fixed-base mul using a base field element as a scalar
+    mul_fixed_base_field: mul_fixed::base_field_elem::Config,
     /// Running sum decomposition of a scalar used in fixed-base mul. This is used
     /// when the scalar is a signed short exponent or a base-field element.
     pub mul_fixed: mul_fixed::Config,
@@ -196,11 +198,6 @@ impl EccChip {
         lagrange_coeffs: [Column<Fixed>; 8],
         range_check: LookupRangeCheckConfig<pallas::Base, { sinsemilla::K }>,
     ) -> <Self as Chip<pallas::Base>>::Config {
-        // The following columns need to be equality-enabled for their use in sub-configs:
-        //
-        // mul_fixed::base_field_element::Config:
-        // - [advices[6], advices[7], advices[8]]: canon_advices
-        //
         // TODO: Refactor away from `impl From<EccConfig> for _` so that sub-configs can
         // equality-enable the columns they need to.
         for column in &advices {
@@ -242,6 +239,14 @@ impl EccChip {
         // Create gate that is only used in short fixed-base scalar mul.
         let mul_fixed_short = mul_fixed::short::Config::configure(meta, mul_fixed);
 
+        // Create gate that is only used in fixed-base mul using a base field element.
+        let mul_fixed_base_field = mul_fixed::base_field_elem::Config::configure(
+            meta,
+            advices[6..9].try_into().unwrap(),
+            range_check,
+            mul_fixed,
+        );
+
         let config = EccConfig {
             advices,
             add_incomplete,
@@ -249,17 +254,11 @@ impl EccChip {
             mul,
             mul_fixed_full,
             mul_fixed_short,
-            q_mul_fixed_base_field: meta.selector(),
+            mul_fixed_base_field,
             mul_fixed,
             witness_point,
             lookup_config: range_check,
         };
-
-        // Create gate that is only used in fixed-base mul using a base field element.
-        {
-            let base_field_config: mul_fixed::base_field_elem::Config = (&config).into();
-            base_field_config.create_gate(meta);
-        }
 
         config
     }
@@ -449,7 +448,7 @@ impl EccInstructions<pallas::Affine> for EccChip {
         base_field_elem: CellValue<pallas::Base>,
         base: &Self::FixedPointsBaseField,
     ) -> Result<Self::Point, Error> {
-        let config: mul_fixed::base_field_elem::Config = self.config().into();
+        let config = self.config().mul_fixed_base_field;
         config.assign(
             layouter.namespace(|| format!("base-field elem fixed-base mul of {:?}", base)),
             base_field_elem,
