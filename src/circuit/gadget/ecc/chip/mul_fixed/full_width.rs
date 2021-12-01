@@ -14,14 +14,14 @@ use pasta_curves::{arithmetic::FieldExt, pallas};
 
 pub struct Config {
     q_mul_fixed_full: Selector,
-    super_config: super::Config<NUM_WINDOWS>,
+    super_config: super::Config,
 }
 
 impl From<&EccConfig> for Config {
     fn from(config: &EccConfig) -> Self {
         Self {
             q_mul_fixed_full: config.q_mul_fixed_full,
-            super_config: config.into(),
+            super_config: config.mul_fixed,
         }
     }
 }
@@ -124,13 +124,15 @@ impl Config {
 
                 let scalar = self.witness(&mut region, offset, scalar)?;
 
-                let (acc, mul_b) = self.super_config.assign_region_inner(
-                    &mut region,
-                    offset,
-                    &(&scalar).into(),
-                    base.into(),
-                    self.q_mul_fixed_full,
-                )?;
+                let (acc, mul_b) = self
+                    .super_config
+                    .assign_region_inner::<{ constants::NUM_WINDOWS }>(
+                        &mut region,
+                        offset,
+                        &(&scalar).into(),
+                        base.into(),
+                        self.q_mul_fixed_full,
+                    )?;
 
                 Ok((scalar, acc, mul_b))
             },
