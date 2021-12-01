@@ -11,7 +11,7 @@ use arrayvec::ArrayVec;
 use group::prime::PrimeCurveAffine;
 use halo2::{
     circuit::{Chip, Layouter},
-    plonk::{Advice, Column, ConstraintSystem, Error, Fixed, Selector},
+    plonk::{Advice, Column, ConstraintSystem, Error, Fixed},
 };
 use pasta_curves::{arithmetic::CurveAffine, pallas};
 
@@ -149,9 +149,6 @@ pub struct EccConfig {
     mul_fixed_short: mul_fixed::short::Config,
     /// Fixed-base mul using a base field element as a scalar
     mul_fixed_base_field: mul_fixed::base_field_elem::Config,
-    /// Running sum decomposition of a scalar used in fixed-base mul. This is used
-    /// when the scalar is a signed short exponent or a base-field element.
-    pub mul_fixed: mul_fixed::Config,
 
     /// Witness point
     witness_point: witness_point::Config,
@@ -198,12 +195,6 @@ impl EccChip {
         lagrange_coeffs: [Column<Fixed>; 8],
         range_check: LookupRangeCheckConfig<pallas::Base, { sinsemilla::K }>,
     ) -> <Self as Chip<pallas::Base>>::Config {
-        // TODO: Refactor away from `impl From<EccConfig> for _` so that sub-configs can
-        // equality-enable the columns they need to.
-        for column in &advices {
-            meta.enable_equality((*column).into());
-        }
-
         // Create witness point gate
         let witness_point = witness_point::Config::configure(meta, advices[0], advices[1]);
 
@@ -247,7 +238,7 @@ impl EccChip {
             mul_fixed,
         );
 
-        let config = EccConfig {
+        EccConfig {
             advices,
             add_incomplete,
             add,
@@ -255,12 +246,9 @@ impl EccChip {
             mul_fixed_full,
             mul_fixed_short,
             mul_fixed_base_field,
-            mul_fixed,
             witness_point,
             lookup_config: range_check,
-        };
-
-        config
+        }
     }
 }
 
