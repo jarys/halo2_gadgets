@@ -1,12 +1,12 @@
 [package]
 name = "halo2_gadgets"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-#minimal_sinsemilla = { git = "https://github.com/jarys/minimal_sinsemilla.gi", default-features = false }
-#minimal_poseidon = { git = "https://github.com/jarys/minimal_poseidon.git", default-features = false }
-minimal_sinsemilla = { path = "/home/agi/code/minimal_sinsemilla", default-features = false }
-minimal_poseidon = { path = "/home/agi/code/minimal_poseidon", default-features = false }
+minimal_sinsemilla = { git = "https://github.com/jarys/minimal_sinsemilla", default-features = false }
+minimal_poseidon = { git = "https://github.com/jarys/minimal_poseidon", default-features = false }
+#minimal_sinsemilla = { path = "/home/agi/code/minimal_sinsemilla", default-features = false }
+#minimal_poseidon = { path = "/home/agi/code/minimal_poseidon", default-features = false }
